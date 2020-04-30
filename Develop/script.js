@@ -189,9 +189,13 @@ function generatePassword() {
 
     //Stand-in for printing out password after verification.
     console.log("Password: " + result);
+
   } else {
     alert("Please select a number between 8 and 128.");
   }
+
+  //Outputing the password from the function
+  return(result);
 }
 
 // Write password to the #password input
@@ -199,7 +203,7 @@ function writePassword() {
   console.log("button pressed!");
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  
   passwordText.value = password;
 }
 
