@@ -95,6 +95,8 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Password Generation Logic
 
 function generatePassword() {
+  
+  //Password Length input and validation
   var length = parseInt(
     prompt(
       "How long would you like your password to be? \nPlease choose a password length between 8 and 128 characters."
@@ -102,6 +104,9 @@ function generatePassword() {
   );
 
   if (length >= 8 && length <= 128) {
+
+    //Password Content Questions
+
     var wantsLower = confirm(
       "Would you like to use lowercase letters in your password?"
     );
@@ -114,13 +119,15 @@ function generatePassword() {
     var wantsNumber = confirm(
       "Would you like to use numbers in your password?"
     );
-
+    
+    //Variables
     var charSet = [];
 
     var result = "";
 
     var validPassword = false;
-
+    
+    //Array charSet assembly
     if (wantsLower) {
       charSet.push(lowercaseLetters);
     }
@@ -137,6 +144,7 @@ function generatePassword() {
       charSet.push(numbers);
     }
 
+    //Loop will run until a valid password is created.
     while (validPassword === false) {
 
       var lowerVer = true;
@@ -154,9 +162,8 @@ function generatePassword() {
 
       }
 
-      // Logic needed here to check for valid password, looped until a valid password is generated.
-
-      //Attempted function form of verification
+      //Created Password goes through verification process.
+      //Attempted function form of verification - Functional!
 
       function characterVerification(wants, verification, characterSet) {
         if (wants) {
@@ -180,7 +187,7 @@ function generatePassword() {
       }
     }
 
-    //Stand-in for printing out password, checking for valid password
+    //Stand-in for printing out password after verification.
     console.log("Password: " + result);
   } else {
     alert("Please select a number between 8 and 128.");
