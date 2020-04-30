@@ -155,42 +155,25 @@ function generatePassword() {
       }
 
       // Logic needed here to check for valid password, looped until a valid password is generated.
-      // Verifies, if lowercase letters were used, that there is at least one lowercase letter in the password.
-      if (wantsLower) {
-        lowerVer = false;
-        for (var j = 0; j < length; j++) {
-          if (lowercaseLetters.includes(result[j])) {
-            lowerVer = true;
+
+      //Attempted function form of verification
+
+      function characterVerification(wants, verification, characterSet) {
+        if (wants) {
+          verification = false;
+          for (var j = 0; j < length; j++) {
+            if (characterSet.includes(result[j])) {
+              verification = true;
+              console.log("Verified!");
+            }
           }
         }
       }
 
-      if (wantsUpper) {
-        upperVer = false;
-        for (var k = 0; k < length; k++) {
-          if (uppercaseLetters.includes(result[k])) {
-            upperVer = true;
-          }
-        }
-      }
-
-      if (wantsSpecial) {
-        specialVer = false;
-        for (var l = 0; l < length; l++) {
-          if (specialCharacters.includes(result[l])) {
-            specialVer = true;
-          }
-        }
-      }
-
-      if (wantsNumber) {
-        numberVer = false;
-        for (var m = 0; m < length; m++) {
-          if (numbers.includes(result[m])) {
-            numberVer = true;
-          }
-        }
-      }
+      characterVerification(wantsLower, lowerVer, lowercaseLetters);
+      characterVerification(wantsUpper, upperVer, uppercaseLetters);
+      characterVerification(wantsSpecial, specialVer, specialCharacters);
+      characterVerification(wantsNumber, numberVer, numbers);
 
       if (lowerVer && upperVer && specialVer && numberVer) {
         validPassword = true;
