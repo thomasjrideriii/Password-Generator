@@ -171,7 +171,7 @@ function generatePassword() {
           for (var j = 0; j < length; j++) {
             if (characterSet.includes(result[j])) {
               verification = true;
-              console.log("Verified!");
+              console.log("Verified!" + characterSet);
             }
           }
         }
